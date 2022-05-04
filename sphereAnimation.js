@@ -5,6 +5,7 @@ import * as LERP from './interpolation.js';
 const particlesCount = 20000;
 const sphereSizeStart = 100;
 const sphereSizeEnd = 8;
+const starSize = 0.02;
 
 let sphere;
 let innerShape;
@@ -21,11 +22,11 @@ function getMousePos(event) {
     mouseX = event.clientX;
 }
 
-export function spawnSphere(scene) {
+export function spawnSphere(scene, fg_color, fg_accent_color) {
     
     //center sphere
     const sphereGeometry = new THREE.SphereGeometry(sphereSizeEnd, 40, 40);
-    const mat = new THREE.PointsMaterial({color: 0xDE5D83, size:0.1});
+    const mat = new THREE.PointsMaterial({color: fg_accent_color, size:0.1});
     sphere = new THREE.Points(sphereGeometry, mat);
     
 
@@ -36,17 +37,12 @@ export function spawnSphere(scene) {
     for (let i = 0; i < particlesCount*3; i++) {
         positionArray[i] = (Math.random() - 0.5) * 100;
     }
+
     const particlesGeometry = new THREE.BufferGeometry;
-    const particleMaterial = new THREE.PointsMaterial({color: 0xffffff, size:0.005})
+    const particleMaterial = new THREE.PointsMaterial({color: fg_color, size:starSize})
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positionArray, 3));
     particleMesh = new THREE.Points(particlesGeometry, particleMaterial)
     particleMesh.position.y = -83;
-
-    //add an inner shape
-    const innerShapeGeometry = new THREE.BoxGeometry(4, 4, 4, 16, 16, 16);
-    const innerShapeMaterial = new THREE.PointsMaterial({color: 0xffffff, size:0.005});
-    innerShape = new THREE.Points(innerShapeGeometry, innerShapeMaterial);
-
 
     scene.add(sphere, particleMesh);
 }

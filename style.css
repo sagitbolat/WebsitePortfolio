@@ -14,25 +14,46 @@ canvas {
   src: url(Futura\ Book\ font.ttf)
 }
 
-@keyframes fade-in {
-  0% {opacity: 0%};
-  100% {opacity: 100%};
+@keyframes fade-in-left {
+  0% {opacity: 0%; transform: translateX(-50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
 }
-@-moz-keyframes fade-in {
-  0% {opacity: 0%};
-  100% {opacity: 100%};
+@-moz-keyframes fade-in-left {
+  0% {opacity: 0%; transform: translateX(-50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
 }
-@-webkit-keyframes fade-in {
-  0% {opacity: 0%};
-  100% {opacity: 100%};
+@-webkit-keyframes fade-in-left {
+  0% {opacity: 0%; transform: translateX(-50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
 }
-@-o-keyframes fade-in {
-  0% {opacity: 0%};
-  100% {opacity: 100%};
+@-o-keyframes fade-in-left {
+  0% {opacity: 0%; transform: translateX(-50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
 }
-@-ms-keyframes fade-in {
-  0% {opacity: 0%};
-  100% {opacity: 100%};
+@-ms-keyframes fade-in-left {
+  0% {opacity: 0%; transform: translateX(-50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
+}
+
+@keyframes fade-in-right {
+  0% {opacity: 0%; transform: translateX(50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
+}
+@-moz-keyframes fade-in-right {
+  0% {opacity: 0%; transform: translateX(50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
+}
+@-webkit-keyframes fade-in-right {
+  0% {opacity: 0%; transform: translateX(50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
+}
+@-o-keyframes fade-in-right {
+  0% {opacity: 0%; transform: translateX(50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
+}
+@-ms-keyframes fade-in-right {
+  0% {opacity: 0%; transform: translateX(50px)};
+  100% {opacity: 100%; transform: translateX(0px)};
 }
 
 @keyframes slide-down-navbar {
@@ -57,8 +78,13 @@ canvas {
 }
 
 :root {
-  --spacing: 140%;
+  --spacing: 80%;
   --blush-pink: #DE5D83;
+
+  --bg-accent-color: #30475E;
+  --fg-accent-color: #F05454;
+  --background-color: #222831;
+  --foreground-color: #DDDDDD;
 
   font-family: Futura;
   font-weight: 400;
@@ -67,6 +93,7 @@ canvas {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   overscroll-behavior-y: none;
+  color: var(--foreground-color);
 }
 :root::-webkit-scrollbar {
   display: none;
@@ -74,7 +101,7 @@ canvas {
 
 main {
   width : 100vw;
-  color: rgb(255, 255, 255);
+  color: var(--foreground-color);
   z-index: 99;
   position: absolute;
   width: 100%;
@@ -89,7 +116,7 @@ main {
 .topnav {
   margin-top: -8px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: var(--background-color);
   left: 50%;
   transform: translate(-50%, 0);
   overflow: hidden;
@@ -115,7 +142,7 @@ main {
   font-family: CambaiMinimalist;
 
   background-color: transparent;
-  color: var(--accent-color);
+  color: var(--foreground-color);
   border: none;
   outline: none;
   position: relative;
@@ -182,7 +209,7 @@ main {
   right: 0;
   bottom: 0;
   height: var(--border-size);
-  background-color: var(--blush-pink);
+  background-color: var(--fg-accent-color);
 
   transition: transform 300ms ease-in-out;
 
@@ -200,12 +227,13 @@ header {
   text-align: center;
   font-family: CambaiMinimalist;
   font-size: 100%;
+  color: var(--fg-accent-color);
 
-  animation: fade-in linear 2s;
-  -webkit-animation: fade-in linear 2s;
-  -moz-animation: fade-in linear 2s;
-  -o-animation: fade-in linear 2s;
-  -ms-animation: fade-in linear 2s;
+  animation: fade-in-left ease-out 1s;
+  -webkit-animation: fade-in-left ease-out 1s;
+  -moz-animation: fade-in-left ease-out 1s;
+  -o-animation: fade-in-left ease-out 1s;
+  -ms-animation: fade-in-left ease-out 1s;
 
   animation-delay: 1s;
   -webkit-animation-delay: 1s;
@@ -221,23 +249,24 @@ header {
   font-family: Futura;
   font-size: 50%;
 
-  animation: fade-in linear 2s;
-  -webkit-animation: fade-in linear 2s;
-  -moz-animation: fade-in linear 2s;
-  -o-animation: fade-in linear 2s;
-  -ms-animation: fade-in linear 2s;
+  animation: fade-in-right ease-out 1s;
+  -webkit-animation: fade-in-right ease-out 1s;
+  -moz-animation: fade-in-right ease-out 1s;
+  -o-animation: fade-in-right ease-out 1s;
+  -ms-animation: fade-in-right ease-out 1s;
 
-  animation-delay: 2s;
-  -webkit-animation-delay: 2s;
-  -moz-animation-delay: 2s;
-  -o-animation-delay: 2s;
-  -ms-animation-delay: 2s;
+  animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
 
   animation-fill-mode: backwards;
 }
 
+
 h2 {
-  color: var(--blush-pink);
+  color: var(--fg-accent-color);
 }
 section {
   grid-column: 1 /span 6;
