@@ -1,0 +1,252 @@
+canvas {
+  overflow: hidden;
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+@font-face {
+  font-family: CambaiMinimalist;
+  src: url(CambaiMinimalist.ttf);
+}
+@font-face {
+  font-family: Futura;
+  src: url(Futura\ Book\ font.ttf)
+}
+
+@keyframes fade-in {
+  0% {opacity: 0%};
+  100% {opacity: 100%};
+}
+@-moz-keyframes fade-in {
+  0% {opacity: 0%};
+  100% {opacity: 100%};
+}
+@-webkit-keyframes fade-in {
+  0% {opacity: 0%};
+  100% {opacity: 100%};
+}
+@-o-keyframes fade-in {
+  0% {opacity: 0%};
+  100% {opacity: 100%};
+}
+@-ms-keyframes fade-in {
+  0% {opacity: 0%};
+  100% {opacity: 100%};
+}
+
+@keyframes slide-down-navbar {
+  from {transform: translateY(-40px)};
+  to {transform: translateY(0px)};
+}
+@-moz-keyframes slide-down-navbar {
+  from {-moz-transform: translateY(-40px)};
+  to {-moz-transform: translateY(0px)};
+}
+@-webkit-keyframes slide-down-navbar {
+  from {-webkit-transform: translateY(-40px)};
+  to {-webkit-transform: translateY(0px)};
+}
+@-o-keyframes slide-down-navbar {
+  from {-o-transform: translateY(-40px)};
+  to {-o-transform: translateY(0px)};
+}
+@-ms-keyframes slide-down-navbar {
+  from {-ms-transform: translateY(-40px)};
+  to {-ms-transform: translateY(0px)};
+}
+
+:root {
+  --spacing: 140%;
+  --blush-pink: #DE5D83;
+
+  font-family: Futura;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: hidden; 
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overscroll-behavior-y: none;
+}
+:root::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  width : 100vw;
+  color: rgb(255, 255, 255);
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 120px 0 px;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  margin-top: -8px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+  position: fixed;
+}
+/*Scale the image logo*/
+.color-blind-button {
+  max-width: 1%;
+  max-height: 1%;
+  margin-left: 2%;
+  margin-right: 21%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+/* Style the links inside the navigation bar */
+.nav-btn {
+  width: 10%;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+  font-size: 10px;
+  font-family: CambaiMinimalist;
+
+  background-color: transparent;
+  color: var(--accent-color);
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+
+  animation: slide-down-navbar ease-out 1s;
+  -webkit-animation: slide-down-navbar ease-out 1s;
+  -moz-animation: slide-down-navbar ease-out 1s;
+  -o-animation: slide-down-navbar ease-out 1s;
+  -ms-animation: slide-down-navbar ease-out 1s;
+
+  animation-fill-mode: both;
+
+
+  --border-size: 1px;
+}
+#navbutton-1 {
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+
+}
+#navbutton-2 {
+  animation-delay: 2.2s;
+  -webkit-animation-delay: 2.2s;
+  -moz-animation-delay: 2.2s;
+  -o-animation-delay: 2.2s;
+  -ms-animation-delay: 2.2s;
+
+}
+#navbutton-3 {
+  animation-delay: 2.4s;
+  -webkit-animation-delay: 2.4s;
+  -moz-animation-delay: 2.4s;
+  -o-animation-delay: 2.4s;
+  -ms-animation-delay: 2.4s;
+
+}
+#navbutton-4 {
+  animation-delay: 2.6s;
+  -webkit-animation-delay: 2.6s;
+  -moz-animation-delay: 2.6s;
+  -o-animation-delay: 2.6s;
+  -ms-animation-delay: 2.6s;
+
+}
+#navbutton-5 {
+  animation-delay: 2.8s;
+  -webkit-animation-delay: 2.8s;
+  -moz-animation-delay: 2.8s;
+  -o-animation-delay: 2.8s;
+  -ms-animation-delay: 2.8s;
+
+}
+.nav-btn:hover::before{
+  transform: scaleX(1);
+} 
+.nav-btn::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--border-size);
+  background-color: var(--blush-pink);
+
+  transition: transform 300ms ease-in-out;
+
+  transform: scaleX(0);
+}
+
+header {
+  grid-column: 1 / span 12;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
+}
+.Name {
+  margin-top: 12%;
+  text-align: center;
+  font-family: CambaiMinimalist;
+  font-size: 100%;
+
+  animation: fade-in linear 2s;
+  -webkit-animation: fade-in linear 2s;
+  -moz-animation: fade-in linear 2s;
+  -o-animation: fade-in linear 2s;
+  -ms-animation: fade-in linear 2s;
+
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+
+  animation-fill-mode: backwards;
+}
+.Title {
+  margin-top: 12%;
+  text-align: center;
+  font-family: Futura;
+  font-size: 50%;
+
+  animation: fade-in linear 2s;
+  -webkit-animation: fade-in linear 2s;
+  -moz-animation: fade-in linear 2s;
+  -o-animation: fade-in linear 2s;
+  -ms-animation: fade-in linear 2s;
+
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+
+  animation-fill-mode: backwards;
+}
+
+h2 {
+  color: var(--blush-pink);
+}
+section {
+  grid-column: 1 /span 6;
+  padding: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+  font-family: Futura;
+} 
+.section-left{
+  grid-column: 7 /span 6
+}
